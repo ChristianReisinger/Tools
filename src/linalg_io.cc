@@ -26,9 +26,8 @@ void write_correlation_matrices(std::ostream& os, corrmat_data& cmd) {
 			for (int T = 0; T < cmd[0][0].size(); ++T) {
 				for (int o1 = 0; o1 < cmd[0][0][0].size(); ++o1) {
 					for (int o2 = 0; o2 < cmd[0][0][0][0].size(); ++o2) {
-						os << cmd[config][R][T][o1][o2];
+						os << cmd[config][R][T][o1][o2] << "\n";
 					}
-					os << "\n";
 				}
 				os << "\n";
 			}
