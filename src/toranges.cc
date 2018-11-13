@@ -17,7 +17,6 @@ int main(int argc, char **argv) {
 	prev = first;
 
 	while (list_iss >> sep >> next) {
-//		std::cout << first << " " << prev << " " << next << " " << ranges_iss.str() << "\n";
 		if (next != prev + 1) {
 			if (prev != first)
 				ranges_iss << ".." << prev;
