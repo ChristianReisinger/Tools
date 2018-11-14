@@ -6,7 +6,7 @@ SRC_DIR=src/
 BUILD_DIR=lib/
 BIN_DIR=bin/
 NAMES=linalg_io
-BIN_NAMES=toranges
+BIN_NAMES=toranges regex_match_multiline
 
 OBJS=${NAMES:%=${BUILD_DIR}/lib%.so}
 BINS=${BIN_NAMES:%=${BIN_DIR}/%}
