@@ -5,10 +5,10 @@
  *      Author: reisinger
  */
 
+#include <cmath>
+
 #ifndef INCLUDE_MATH_FUNCTIONS_HH_
 #define INCLUDE_MATH_FUNCTIONS_HH_
-
-#include <cmath>
 
 namespace math_functions {
 
@@ -22,6 +22,10 @@ int gcd(int a, int b) {
 
 int sgn(double d) {
 	return (d > 0) - (d < 0);
+}
+
+int sgn(int i) {
+	return (i > 0) - (i < 0);
 }
 
 }
