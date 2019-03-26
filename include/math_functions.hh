@@ -14,19 +14,13 @@
 
 namespace math_functions {
 
-int gcd(int a, int b) {
-	a = std::abs(a);
-	b = std::abs(b);
-	if (a == 0)
-		return b;
-	return gcd(b % a, a);
-}
+int gcd(int a, int b);
 
-int sgn(double d) {
+inline int sgn(double d) {
 	return (d > 0) - (d < 0);
 }
 
-int sgn(int i) {
+inline int sgn(int i) {
 	return (i > 0) - (i < 0);
 }
 

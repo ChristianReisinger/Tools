@@ -11,6 +11,14 @@
 
 #include <math_functions.hh>
 
+int math_functions::gcd(int a, int b) {
+	a = std::abs(a);
+	b = std::abs(b);
+	if (a == 0)
+		return b;
+	return gcd(b % a, a);
+}
+
 double math_functions::fit_constant(std::vector<std::pair<double, double> > pts_mu_sigma) {
 	double fit = 0.0;
 	double norm = 0.0;
