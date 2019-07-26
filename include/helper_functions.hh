@@ -28,8 +28,13 @@ std::unique_ptr<T> make_unique(Args&& ...args) {
 }
 
 template<typename T>
-int index_of(const std::vector<T>& v, const T elem) {
-	return (int) distance(v.begin(), find(v.begin(), v.end(), elem));
+int index_of(const std::vector<T>& v, const T& elem) {
+	return (int) std::distance(v.begin(), std::find(v.begin(), v.end(), elem));
+}
+
+template<typename T>
+bool contains(const std::vector<T>& v, const T& elem) {
+	return std::find(v.begin(), v.end(), elem) != v.end();
 }
 
 std::vector<int> parse_unsigned_int_list(char* arg);
