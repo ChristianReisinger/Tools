@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 #include <type_traits>
+#include <algorithm>
 
 #ifndef INCLUDE_HELPER_FUNCTIONS_HH_
 #define INCLUDE_HELPER_FUNCTIONS_HH_
