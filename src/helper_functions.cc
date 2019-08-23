@@ -9,7 +9,7 @@
 #include <sstream>
 #include <helper_functions.hh>
 
-std::vector<int> parse_unsigned_int_list(char* arg) {
+std::vector<int> parse_unsigned_int_list(const char* arg) {
 	std::vector<int> ints;
 
 	int val, val_range_first;

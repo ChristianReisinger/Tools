@@ -38,6 +38,6 @@ bool contains(const std::vector<T>& v, const T& elem) {
 	return std::find(v.begin(), v.end(), elem) != v.end();
 }
 
-std::vector<int> parse_unsigned_int_list(char* arg);
+std::vector<int> parse_unsigned_int_list(const char* arg);
 
 #endif /* INCLUDE_HELPER_FUNCTIONS_HH_ */
