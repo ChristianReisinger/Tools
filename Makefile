@@ -5,7 +5,7 @@ INCLUDE=-I"include"
 SRC_DIR=src/
 BUILD_DIR=lib/
 BIN_DIR=bin/
-LIB_NAMES=linalg_io helper_functions math_functions
+LIB_NAMES=linalg_io helper_functions math_functions io_tools
 BIN_NAMES=toranges regex_match_multiline
 
 OBJS=${LIB_NAMES:%=${BUILD_DIR}/lib%.so}
