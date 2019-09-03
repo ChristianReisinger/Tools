@@ -4,11 +4,11 @@
 
 #include <io_tools.hh>
 
-std::istream& io_tools::getline_iss(std::istream& from, std::ostream& to) {
-	return getline_iss(from, to, from.widen('\n'));
+std::istream& io_tools::getline(std::istream& from, std::ostream& to) {
+	return getline(from, to, from.widen('\n'));
 }
 
-std::istream& io_tools::getline_iss(std::istream& from, std::ostream& to, char delim) {
+std::istream& io_tools::getline(std::istream& from, std::ostream& to, char delim) {
 	std::string str;
 	std::getline(from, str, delim);
 	to << str;
