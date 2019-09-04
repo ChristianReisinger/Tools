@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <utility>
 #include <functional>
@@ -14,6 +15,8 @@ void consume_until(std::istream& data, std::function<bool(T)> condition);
 std::istream& getline(std::istream& from, std::ostream& to);
 
 std::istream& getline(std::istream& from, std::ostream& to, char delim);
+
+bool file_exists(const std::string& filename);
 
 }
 

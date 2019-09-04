@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 #include <io_tools.hh>
@@ -12,6 +13,11 @@ std::istream& io_tools::getline(std::istream& from, std::ostream& to, char delim
 	std::getline(from, str, delim);
 	to << str;
 	return from;
+}
+
+bool io_tools::file_exists(const std::string& filename) {
+	std::ifstream ifs(filename);
+	return ifs.is_open();
 }
 
 std::istream& operator>>(std::istream& from, std::ostream& to) {
