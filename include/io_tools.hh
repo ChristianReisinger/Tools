@@ -1,5 +1,6 @@
 #include <iostream>
-#include <sstream>
+#include <vector>
+#include <utility>
 #include <functional>
 
 #ifndef INCLUDE_IO_TOOLS_HH_
@@ -15,6 +16,12 @@ std::istream& getline(std::istream& from, std::ostream& to);
 std::istream& getline(std::istream& from, std::ostream& to, char delim);
 
 }
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& v);
+
+template<typename T, typename U>
+std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);
 
 std::istream& operator>>(std::istream& from, std::ostream& to);
 
