@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
+#include <exception>
 
 #include <io_tools.hh>
 
@@ -18,6 +20,15 @@ std::istream& io_tools::getline(std::istream& from, std::ostream& to, char delim
 bool io_tools::file_exists(const std::string& filename) {
 	std::ifstream ifs(filename);
 	return ifs.is_open();
+}
+
+int parse_int(std::string s) {
+	std::istringstream int_iss(s);
+	int i;
+	int_iss >> i;
+	if (int_iss.fail())
+		throw std::invalid_argument("parse_int: string does not represent an int");
+	return i;
 }
 
 std::istream& operator>>(std::istream& from, std::ostream& to) {
