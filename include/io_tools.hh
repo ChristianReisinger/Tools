@@ -18,7 +18,7 @@ std::istream& getline(std::istream& from, std::ostream& to, char delim);
 
 bool file_exists(const std::string& filename);
 
-int parse_int(std::string s);
+int parse_int(const std::string& s);
 
 }
 

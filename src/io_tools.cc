@@ -22,7 +22,7 @@ bool io_tools::file_exists(const std::string& filename) {
 	return ifs.is_open();
 }
 
-int parse_int(std::string s) {
+int io_tools::parse_int(const std::string& s) {
 	std::istringstream int_iss(s);
 	int i;
 	int_iss >> i;
