@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include <utility>
 #include <functional>
 
@@ -24,6 +25,9 @@ int parse_int(const std::string& s);
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& v);
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream& os, const std::map<K, V> m);
 
 template<typename T, typename U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);

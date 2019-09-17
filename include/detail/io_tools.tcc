@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <utility>
 #include <functional>
 
@@ -21,6 +22,20 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
 		if (!first)
 			os << ", ";
 		os << elem;
+		first = false;
+	}
+	os << " }";
+	return os;
+}
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream& os, const std::map<K, V> m) {
+	os << "{ ";
+	bool first = true;
+	for(const auto& entry : m) {
+		if(!first)
+			os << ", ";
+		os << entry.first << " : " << entry.second;
 		first = false;
 	}
 	os << " }";
