@@ -1,10 +1,3 @@
-/*
- * regex_match_multiline.cc
- *
- *  Created on: 13.11.2018
- *      Author: reisinger
- */
-
 #include <iostream>
 #include <string>
 #include <fstream>

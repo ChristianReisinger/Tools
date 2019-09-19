@@ -1,8 +1,12 @@
 #include <vector>
 #include <iostream>
 
-#ifndef INCLUDE_LINALG_IO_HH_
-#define INCLUDE_LINALG_IO_HH_
+#ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_LINALG_IO_LINALG_IO_HH_
+#define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_LINALG_IO_LINALG_IO_HH_
+
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
 namespace linalg_io {
 
 typedef std::vector<std::vector<std::vector<std::vector<std::vector<double> > > > > corrmat_data;
@@ -19,5 +23,8 @@ corrmat_data read_correlation_matrices(std::istream& data, const int dim, const 
 void write_correlation_matrices(std::ostream& os, corrmat_data& cms);
 
 }
+}
+}
+}
 
-#endif /* INCLUDE_LINALG_IO_HH_ */
+#endif

@@ -6,8 +6,13 @@
 
 #include <io_tools.hh>
 
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
+namespace io_tools {
+
 template<typename T>
-void io_tools::consume_until(std::istream& data, std::function<bool(T)> condition) {
+void consume_until(std::istream& data, std::function<bool(T)> condition) {
 	T consumed;
 	do {
 		data >> consumed;
@@ -32,8 +37,8 @@ template<typename K, typename V>
 std::ostream& operator<<(std::ostream& os, const std::map<K, V> m) {
 	os << "{ ";
 	bool first = true;
-	for(const auto& entry : m) {
-		if(!first)
+	for (const auto& entry : m) {
+		if (!first)
 			os << ", ";
 		os << entry.first << " : " << entry.second;
 		first = false;
@@ -46,4 +51,9 @@ template<typename T, typename U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
 	os << "{ " << p.first << ", " << p.second << " }";
 	return os;
+}
+
+}
+}
+}
 }

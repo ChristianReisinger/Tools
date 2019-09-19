@@ -1,18 +1,14 @@
-/*
- * math_function.hh
- *
- *  Created on: 11.10.2018
- *      Author: reisinger
- */
-
 #include <cmath>
 #include <vector>
 #include <utility>
 
-#ifndef INCLUDE_MATH_FUNCTIONS_HH_
-#define INCLUDE_MATH_FUNCTIONS_HH_
+#ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_MATH_MATH_FUNCTIONS_HH_
+#define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_MATH_MATH_FUNCTIONS_HH_
 
-namespace math_functions {
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
+namespace math {
 
 int gcd(int a, int b);
 
@@ -32,5 +28,8 @@ double fit_constant(std::vector<std::pair<double, double> > pts_mu_sigma);
 double fit_constant(std::vector<std::pair<double, double> > pts_mu_sigm, double& red_chi_sq);
 
 }
+}
+}
+}
 
-#endif /* INCLUDE_MATH_FUNCTIONS_HH_ */
+#endif

@@ -2,6 +2,9 @@
 #include <vector>
 #include <fstream>
 
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
 namespace linalg_io {
 
 corrmat_data read_correlation_matrices(std::istream& data, const int dim, const int Rs, const int Ts,
@@ -37,4 +40,7 @@ void write_correlation_matrices(std::ostream& os, corrmat_data& cmd) {
 	}
 }
 
+}
+}
+}
 }

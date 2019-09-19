@@ -1,13 +1,11 @@
-/*
- * helper_functions.cc
- *
- *  Created on: 28.02.2019
- *      Author: reisinger
- */
-
 #include <vector>
 #include <sstream>
 #include <helper_functions.hh>
+
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
+namespace helper {
 
 std::vector<int> parse_unsigned_int_list(const char* arg) {
 	std::vector<int> ints;
@@ -46,4 +44,9 @@ std::vector<int> parse_unsigned_int_list(const char* arg) {
 		throw std::invalid_argument(exc_what_oss.str());
 	}
 	return ints;
+}
+
+}
+}
+}
 }

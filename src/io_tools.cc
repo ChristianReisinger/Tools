@@ -6,23 +6,28 @@
 
 #include <io_tools.hh>
 
-std::istream& io_tools::getline(std::istream& from, std::ostream& to) {
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
+namespace io_tools {
+
+std::istream& getline(std::istream& from, std::ostream& to) {
 	return getline(from, to, from.widen('\n'));
 }
 
-std::istream& io_tools::getline(std::istream& from, std::ostream& to, char delim) {
+std::istream& getline(std::istream& from, std::ostream& to, char delim) {
 	std::string str;
 	std::getline(from, str, delim);
 	to << str;
 	return from;
 }
 
-bool io_tools::file_exists(const std::string& filename) {
+bool file_exists(const std::string& filename) {
 	std::ifstream ifs(filename);
 	return ifs.is_open();
 }
 
-int io_tools::parse_int(const std::string& s) {
+int parse_int(const std::string& s) {
 	std::istringstream int_iss(s);
 	int i;
 	int_iss >> i;
@@ -43,4 +48,9 @@ std::ostream& operator<<(std::ostream& to, std::istream& from) {
 	from >> str;
 	to << str;
 	return to;
+}
+
+}
+}
+}
 }

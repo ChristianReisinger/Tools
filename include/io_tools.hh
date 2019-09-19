@@ -5,9 +5,12 @@
 #include <utility>
 #include <functional>
 
-#ifndef INCLUDE_IO_TOOLS_HH_
-#define INCLUDE_IO_TOOLS_HH_
+#ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_IO_TOOLS_IO_TOOLS_HH_
+#define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_IO_TOOLS_IO_TOOLS_HH_
 
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
 namespace io_tools {
 
 template<typename T>
@@ -20,8 +23,6 @@ std::istream& getline(std::istream& from, std::ostream& to, char delim);
 bool file_exists(const std::string& filename);
 
 int parse_int(const std::string& s);
-
-}
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& v);
@@ -36,6 +37,11 @@ std::istream& operator>>(std::istream& from, std::ostream& to);
 
 std::ostream& operator<<(std::ostream& to, std::istream& from);
 
+}
+}
+}
+}
+
 #include <detail/io_tools.tcc>
 
-#endif /* INCLUDE_IO_TOOLS_HH_ */
+#endif

@@ -1,21 +1,20 @@
-/*
- * helper_functions.hh
- *
- *  Created on: 04.07.2018
- *      Author: reisinger
- */
 #include <memory>
 #include <vector>
 #include <type_traits>
 #include <algorithm>
 
-#ifndef INCLUDE_HELPER_FUNCTIONS_HH_
-#define INCLUDE_HELPER_FUNCTIONS_HH_
+#ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
+#define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
+
+namespace de_uni_frankfurt_itp {
+namespace reisinger {
+namespace tools {
+namespace helper {
 
 /**
  * and_type::value is true if all template arguments are true, false otherwise.
  */
-template<bool ...> struct and_type;
+template<bool...> struct and_type;
 template<bool ... bs> struct and_type<false, bs...> : std::false_type {
 };
 template<bool ... bs> struct and_type<true, bs...> : and_type<bs...> {
@@ -40,4 +39,9 @@ bool contains(const std::vector<T>& v, const T& elem) {
 
 std::vector<int> parse_unsigned_int_list(const char* arg);
 
-#endif /* INCLUDE_HELPER_FUNCTIONS_HH_ */
+}
+}
+}
+}
+
+#endif
