@@ -2,6 +2,9 @@
 #include <vector>
 #include <type_traits>
 #include <algorithm>
+#include <chrono>
+#include <sstream>
+#include <iomanip>
 
 #ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
 #define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
@@ -38,6 +41,25 @@ bool contains(const std::vector<T>& v, const T& elem) {
 }
 
 std::vector<int> parse_unsigned_int_list(const char* arg);
+
+template<typename Rep, typename Period>
+std::string timestamp(std::chrono::duration<Rep, Period> duration) {
+	std::ostringstream timestamp_oss;
+	timestamp_oss << std::setfill('0');
+
+	const auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
+	duration -= hours;
+	timestamp_oss << std::setw(2) << hours.count() << ':';
+
+	const auto minutes = std::chrono::duration_cast<std::chrono::minutes>(duration);
+	duration -=minutes;
+	timestamp_oss << std::setw(2) << minutes.count() << ':';
+
+	const auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
+	timestamp_oss << std::setw(2) << seconds.count();
+
+	return timestamp_oss.str();
+}
 
 }
 }
