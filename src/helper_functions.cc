@@ -46,6 +46,28 @@ std::vector<int> parse_unsigned_int_list(const char* arg) {
 	return ints;
 }
 
+bool ends_with(const std::string& str, const std::string& suffix) {
+	return str.size() >= suffix.size() && str.substr(str.size() - suffix.size()) == suffix;
+}
+
+std::vector<std::string> split(const std::string& str, const std::string& delim, bool remove_empty) {
+	std::vector<std::string> tokens;
+
+	for (size_t start = 0, end; start < str.length(); start = end + delim.length()) {
+		size_t pos = str.find(delim, start);
+		end = pos != std::string::npos ? pos : str.length();
+
+		const std::string token = str.substr(start, end - start);
+		if (!remove_empty || !token.empty())
+			tokens.push_back(token);
+	}
+
+	if (!remove_empty && (str.empty() || ends_with(str, delim)))
+		tokens.push_back("");
+
+	return tokens;
+}
+
 }
 }
 }

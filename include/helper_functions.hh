@@ -5,6 +5,7 @@
 #include <chrono>
 #include <sstream>
 #include <iomanip>
+#include <string>
 
 #ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
 #define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
@@ -42,6 +43,10 @@ bool contains(const std::vector<T>& v, const T& elem) {
 
 std::vector<int> parse_unsigned_int_list(const char* arg);
 
+bool ends_with(const std::string& s, const std::string& suffix);
+
+std::vector<std::string> split(const std::string& str, const std::string& delim, bool remove_empty = false);
+
 template<typename Rep, typename Period>
 std::string timestamp(std::chrono::duration<Rep, Period> duration) {
 	std::ostringstream timestamp_oss;
@@ -52,7 +57,7 @@ std::string timestamp(std::chrono::duration<Rep, Period> duration) {
 	timestamp_oss << std::setw(2) << hours.count() << ':';
 
 	const auto minutes = std::chrono::duration_cast<std::chrono::minutes>(duration);
-	duration -=minutes;
+	duration -= minutes;
 	timestamp_oss << std::setw(2) << minutes.count() << ':';
 
 	const auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
