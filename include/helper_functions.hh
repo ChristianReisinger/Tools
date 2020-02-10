@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iomanip>
 #include <string>
+#include <functional>
 
 #ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
 #define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
@@ -64,6 +65,33 @@ std::string timestamp(std::chrono::duration<Rep, Period> duration) {
 	timestamp_oss << std::setw(2) << seconds.count();
 
 	return timestamp_oss.str();
+}
+
+namespace {
+template<typename Function, typename ...Args>
+void do_nest_for(std::vector<int>& is, int ii, const std::vector<std::pair<int, int> >& index_limits,
+		Function f, Args&& ...args) {
+	if (ii < is.size()) {
+		for (is[ii] = index_limits[ii].first; is[ii] < index_limits[ii].second; ++is[ii])
+			do_nest_for(is, ii + 1, index_limits, f, std::forward<Args>(args)...);
+	} else
+		f(is, std::forward<Args>(args)...);
+}
+}
+
+/**
+ * @param f	a function void f(const std::vector<int>&, Args ...)
+ */
+template<typename Function, typename ...Args>
+void nest_for(const std::vector<std::pair<int, int> >& index_limits,
+		Function f, Args&& ...args) {
+	static_assert(std::is_convertible<Function, std::function<void(const std::vector<int>&, decltype(args)...)> >::value,
+			"nest_for: invalid function");
+	if (index_limits.empty())
+		throw std::invalid_argument("nest_for: empty index_limits");
+
+	std::vector<int> is(index_limits.size());
+	do_nest_for(is, 0, index_limits, f, std::forward<Args>(args)...);
 }
 
 }
