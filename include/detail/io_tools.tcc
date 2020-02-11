@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <map>
 #include <utility>
 #include <functional>
@@ -21,6 +22,20 @@ void consume_until(std::istream& data, std::function<bool(T)> condition) {
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
+	os << "{ ";
+	bool first = true;
+	for (const T& elem : v) {
+		if (!first)
+			os << ", ";
+		os << elem;
+		first = false;
+	}
+	os << " }";
+	return os;
+}
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::set<T>& v) {
 	os << "{ ";
 	bool first = true;
 	for (const T& elem : v) {
