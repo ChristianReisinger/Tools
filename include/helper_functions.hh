@@ -69,7 +69,7 @@ std::string timestamp(std::chrono::duration<Rep, Period> duration) {
 
 namespace {
 template<typename Function, typename ...Args>
-void do_nest_for(std::vector<int>& is, int ii, const std::vector<std::pair<int, int> >& index_limits,
+void do_nest_for(std::vector<int>& is, std::size_t ii, const std::vector<std::pair<int, int> >& index_limits,
 		Function f, Args&& ...args) {
 	if (ii < is.size()) {
 		for (is[ii] = index_limits[ii].first; is[ii] < index_limits[ii].second; ++is[ii])
