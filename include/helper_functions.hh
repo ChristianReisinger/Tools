@@ -1,5 +1,7 @@
 #include <memory>
 #include <vector>
+#include <map>
+#include <set>
 #include <type_traits>
 #include <algorithm>
 #include <chrono>
@@ -7,6 +9,7 @@
 #include <iomanip>
 #include <string>
 #include <functional>
+#include <iterator>
 
 #ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
 #define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_HELPER_HELPER_FUNCTIONS_HH_
@@ -92,6 +95,17 @@ void nest_for(const std::vector<std::pair<int, int> >& index_limits,
 
 	std::vector<int> is(index_limits.size());
 	do_nest_for(is, 0, index_limits, f, std::forward<Args>(args)...);
+}
+
+template<typename Key, typename Value, typename ...Other>
+std::set<Key> keyset(const std::map<Key, Value, Other...>& m) {
+	std::set<Key> keyset;
+	std::transform(m.begin(), m.end(),
+			std::inserter(keyset, keyset.begin()),
+			[](const std::pair<Key, Value>& p) {
+				return p.first;
+			});
+	return keyset;
 }
 
 }
