@@ -49,6 +49,8 @@ std::vector<int> parse_unsigned_int_list(const char* arg);
 
 bool ends_with(const std::string& s, const std::string& suffix);
 
+std::vector<std::string> tokenize(const std::string& str, const std::string& delim_regex);
+
 std::vector<std::string> split(const std::string& str, const std::string& delim, bool remove_empty = false);
 
 template<typename Rep, typename Period>

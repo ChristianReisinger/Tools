@@ -1,6 +1,7 @@
 #include <vector>
 #include <sstream>
 #include <helper_functions.hh>
+#include <regex>
 
 namespace de_uni_frankfurt_itp {
 namespace reisinger {
@@ -64,6 +65,18 @@ std::vector<std::string> split(const std::string& str, const std::string& delim,
 
 	if (!remove_empty && (str.empty() || ends_with(str, delim)))
 		tokens.push_back("");
+
+	return tokens;
+}
+
+std::vector<std::string> tokenize(const std::string& str, const std::string& delim_regex) {
+	std::vector<std::string> tokens;
+
+	std::regex delim(delim_regex);
+	std::sregex_token_iterator it(str.begin(), str.end(), delim, -1);
+	for (; it != std::sregex_token_iterator(); ++it)
+		if (!it->str().empty())
+			tokens.emplace_back(it->str());
 
 	return tokens;
 }
