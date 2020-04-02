@@ -32,6 +32,9 @@ public:
 	}
 };
 
+class quit_program: public std::exception {
+};
+
 }
 }
 }
