@@ -1,6 +1,6 @@
-#include <linalg_io.hh>
 #include <vector>
 #include <fstream>
+#include <linalg_io.hh>
 
 namespace de_uni_frankfurt_itp {
 namespace reisinger {
