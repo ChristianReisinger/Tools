@@ -5,7 +5,6 @@
 #include <map>
 #include <utility>
 #include <functional>
-#include <filesystem>
 
 #ifndef INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_IO_TOOLS_IO_TOOLS_HH_
 #define INCLUDE_DE_UNI_FRANKFURT_ITP_REISINGER_TOOLS_IO_TOOLS_IO_TOOLS_HH_
@@ -23,8 +22,6 @@ std::istream& getline(std::istream& from, std::ostream& to);
 std::istream& getline(std::istream& from, std::ostream& to, char delim);
 
 bool file_exists(const std::string& filename);
-
-std::filesystem::path next_unused_filepath(const std::filesystem::path& start_path, const std::string& suffix_sep = "_");
 
 int parse_int(const std::string& s);
 
