@@ -13,6 +13,11 @@ add_library(tools SHARED src/Stopwatch.cc)
 add_executable(regex_match_multiline src/regex_match_multiline.cc)
 add_executable(toranges src/toranges.cc)
 
+if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.1)
+	set(CXX_FILESYSTEM_LIBRARIES "stdc++fs")
+	target_link_libraries(io_tools PUBLIC "${CXX_FILESYSTEM_LIBRARIES}")
+endif()
+
 install(TARGETS
 	helper_functions
 	io_tools
